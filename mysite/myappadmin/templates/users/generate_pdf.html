@@ -1,0 +1,58 @@
+{% block content %}
+<h1>Personal Details</h1>
+<hr>
+<p><b>First Name:</b>{{register_user_details.first_name}}</p>
+<p><b>Last Name:</b>{{register_user_details.last_name}}</p>
+<p><b>Phone Number:</b>{{register_user_details.phone_number}}</p>
+<p><b>Email:</b>{{register_user_details.email}}</p>
+<p><b>City:</b>{{register_user_details.city}}</p>
+<p><b>State:</b>{{register_user_details.state.state_name}}</p>
+<p><b>Country:</b>{{register_user_details.country.country_name}}</p>
+<h1>Educational Details</h1>
+<hr>
+{% for educational_data in register_user_details.educational_details %}
+    <p><b>Year Of Passing</b> {{ educational_data.yr_of_passing }}</p>
+    <p><b>School</b> {{ educational_data.school }}</p>
+    <p><b>Degree</b> {{ educational_data.degree.degree_name }}</p>
+{% endfor %}
+<h1>Certificate Details</h1>
+<hr>
+{% for certificate_data in register_user_details.certificate_details %}
+        <p><b>certificate Name</b> {{ certificate_data.certificate_name }}</p>
+        <p><b>Year Of Certificate</b> {{ certificate_data.yr_of_certificate }}</p>
+    {% endfor %}
+<h1>Work Details</h1>
+<hr>
+{% for work_data in register_user_details.work_details %}
+        <p><b>Skills Set</b> {{ work_data.skills_id.skills_name }}</p>
+        <p><b>Year Of Experience</b> {{ work_data.experience_year.year }}</p>
+    {% endfor %}
+<h1>Employement Details</h1>
+<hr>
+{% for employement_data in register_user_details.employement_details %}
+        <p><b>Job Title</b> {{ employement_data.job_title }}</p>
+        <p><b>Employer</b> {{ employement_data.employer }}</p>
+        <p><b>City</b> {{ employement_data.city }}</p>
+        <p><b>State</b> {{ employement_data.state_id.state_name }}</p>
+        <p><b>Country</b> {{ employement_data.country_id.country_name }}</p>
+        <p><b>From</b> {{ employement_data.from_id.year }}</p>
+        <p><b>To</b> {{ employement_data.to_id.year }}</p>
+    {% endfor %}
+<h1>Awards Details</h1>
+<hr>
+{% for awards_data in register_user_details.awards_details %}
+        <p><b>Awards Name</b> {{ awards_data.award_name }}</p>
+        <p><b>Awards Organisation</b> {{ awards_data.award_org }}</p>
+    {% endfor %}
+<h1>Preference Details</h1>
+<hr>
+{% for preference_data in register_user_details.preference_details %}
+        <p><b>Position</b> {{ preference_data.position }}</p>
+        <p><b>Passport</b> {{ preference_data.Ispassport }}</p>
+        <p><b>Country</b> {{ preference_data.country_id.country_name }}</p>
+        <p><b>Industry</b> {{ preference_data.industry_id.industry_name }}</p>
+        <p><b>Available From</b> {{ preference_data.available_from.year }}</p>
+        <p><b>Salary Expection</b> {{ preference_data.salary_exp.salary }}</p>
+{% endfor %}
+{% endblock content %}
+
